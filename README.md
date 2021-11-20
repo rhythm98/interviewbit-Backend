@@ -101,4 +101,4 @@ backend
 └── server.js
 ```
 
-## Have a look on Frontend **[React used](https://github.com/rhythm98/interviewbit-Backend)**.
+## Have a look on Frontend **[React used](https://github.com/rhythm98/interviewbit-Frontend/)**.
