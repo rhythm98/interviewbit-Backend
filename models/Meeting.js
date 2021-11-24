@@ -6,32 +6,28 @@ const meetingSchema = new mongoose.Schema({
   //     type: ObjectID,
   // required:true
   // }
-  timeCreated: {
-    type: String, //how to store timeStamp/ date+time ??? Date BigInt
+  date: {
+    type: Date, //how to store timeStamp/ date+time ??? Date BigInt
     required: true,
   },
   startTime: {
-    type: String, //how to store timeStamp/ date+time
+    type: Date, //how to store timeStamp/ date+time
     required: true,
   },
   endTime: {
-    type: String, //how to store timeStamp/ date+time
-    required: true,
-  },
-  status: {
-    type: String,
+    type: Date, //how to store timeStamp/ date+time
     required: true,
   },
   interviewers: {
     type: Array,
     required: true,
-    users: [],
+    users: [], //store id of interviewers
   },
 
   candidates: {
     type: Array,
     required: true,
-    users: [],
+    users: [], //store id of candidates
   },
   title: {
     type: String,
@@ -39,10 +35,6 @@ const meetingSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-  },
-  timezone: {
-    type: String, //how to store timeStamp/ date+time
-    required: true,
   },
 })
 const Meeting = mongoose.model('Meeting', meetingSchema)

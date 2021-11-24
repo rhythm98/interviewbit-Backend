@@ -1,7 +1,7 @@
 // const { static } = require('express')
 const express = require('express')
 const app = express()
-
+const cors = require('cors')
 // database connection
 const mongoose = require('mongoose')
 const url =
@@ -15,6 +15,7 @@ con.on('open', () => {
 })
 
 // MIDDLEWARES
+app.use(cors())
 // to make POST request
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

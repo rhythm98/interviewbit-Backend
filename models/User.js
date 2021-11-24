@@ -1,42 +1,40 @@
-// const Meeting = require('./Meeting')
 const mongoose = require('mongoose')
-const { Timestamp } = require('bson')
+
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
+    default: '',
   },
   lastName: {
     type: String,
     required: true,
+    default: '',
   },
-  emailID: {
+  emailID: {//unique
     type: String, //check dataType, validate
     required: true,
+    default: '',
   },
   role: {
     type: String,
     required: true,
-    enum: ['Admin', 'Interviewer', 'Candidate'],
+    enum: ['Admin', 'Interviewer', ''],
+    default: 'Candidate',
   },
   resumeURL: {
     type: String, //check dataType
     required: true,
+    default: '',
   },
 
-  meetingSlots: {
+  meetingID: {
     type: Array,
     required: true,
-    slots: {
-      startTime: {
-        type: Timestamp,
-        require: true,
-      },
-      endTime: {
-        type: Timestamp, //timeStamp not working
-        require: true,
-      },
-    },
+    id:[],
   },
 })
-module.exports = mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema)
+module.exports={
+  User,
+}
